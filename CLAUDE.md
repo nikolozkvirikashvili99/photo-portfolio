@@ -1,7 +1,7 @@
 # photo-portfolio
 
 ## What this is
-A photography portfolio site for Nika's wife: one page (header, intro, album covers, footer).
+A photographer's portfolio site: one page (header, intro, album covers, footer).
 Each album opens as its own view at `#album/<slug>` (hash routing via `src/hooks/useHash.ts`, no router).
 Nika's **own** project and a learning project: parts marked `TODO(Nika)` are Nika's to write (`/tutor`).
 
