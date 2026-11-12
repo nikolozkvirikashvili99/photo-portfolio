@@ -1,0 +1,57 @@
+/* Design tokens: the only place colours, type and spacing are defined.
+   Photo-first: the photos are the colour, the page around them stays neutral. */
+
+:root {
+  /* Colour (light) */
+  --color-bg: #f7f4ef; /* warm paper */
+  --color-surface: #efebe4;
+  --color-text: #18181b;
+  --color-text-muted: #52525b;
+  --color-border: #e2ddd4;
+  --color-focus: #18181b;
+
+  /* Type */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  --leading-tight: 1.1;
+  --leading-body: 1.6;
+
+  /* Space (4px scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --page-max: 80rem;
+  --page-gutter: var(--space-4);
+  --radius: 2px;
+  --tap-target: 2.75rem; /* 44px: comfortable to hit with a finger */
+
+  color-scheme: light dark;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-gutter: var(--space-8);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121110; /* warm charcoal */
+    --color-surface: #1c1a18;
+    --color-text: #fafafa;
+    --color-text-muted: #a1a1aa;
+    --color-border: #2a2724;
+    --color-focus: #fafafa;
+  }
+}

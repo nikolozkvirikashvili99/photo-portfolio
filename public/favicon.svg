@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Camera icon. A favicon can't read tokens.css, so the colours are copied from
+       the color-text token (light #18181b, dark #fafafa) and switch with the browser's theme. -->
+  <style>
+    .ink { stroke: #18181b; }
+    .dot { fill: #18181b; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #fafafa; }
+      .dot { fill: #fafafa; }
+    }
+  </style>
+  <path class="ink" stroke-width="2.5" stroke-linejoin="round"
+        d="M4 10.5a2.5 2.5 0 0 1 2.5-2.5h3.5l2-3h8l2 3h3.5a2.5 2.5 0 0 1 2.5 2.5v14a2.5 2.5 0 0 1-2.5 2.5h-19A2.5 2.5 0 0 1 4 24.5z" />
+  <circle class="ink" cx="16" cy="17" r="5" stroke-width="2.5" />
+  <circle class="dot" cx="24" cy="12" r="1.25" />
+</svg>
