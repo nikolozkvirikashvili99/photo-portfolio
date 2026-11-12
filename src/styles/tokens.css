@@ -3,11 +3,11 @@
 
 :root {
   /* Colour (light) */
-  --color-bg: #fbfaf7; /* milky white */
-  --color-surface: #f2f0eb;
+  --color-bg: #faf8f3; /* milky white */
+  --color-surface: #f1eee7;
   --color-text: #18181b;
   --color-text-muted: #52525b;
-  --color-border: #e6e3dd;
+  --color-border: #e5e1d9;
   --color-focus: #18181b;
 
   /* Type */

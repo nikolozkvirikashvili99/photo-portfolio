@@ -33,7 +33,7 @@ Tests: Vitest 5 + React Testing Library + jest-dom (jsdom; setup in `src/test/se
 ## Design system
 - `src/styles/tokens.css` is the **only** place for colours, fonts, the type scale and the
   space scale (`--space-*`, `--text-*`, `--color-*`). Light only (no dark mode, Nika's call 2026-11-13).
-- Milky white page (`#fbfaf7`), so the photos carry the colour. Space Grotesk (display) + Archivo (body),
+- Milky white page (`#faf8f3`), so the photos carry the colour. Space Grotesk (display) + Archivo (body),
   loaded in `index.html`.
 - Shared helpers in `global.css`: `.container` (page width + gutter), `.visually-hidden`.
 - Tap targets use `--tap-target` (44px). The first `EAGER_PHOTOS` photos (`albums.ts`) load eagerly.
