@@ -48,15 +48,7 @@ export default function Header() {
         {site.name}
       </a>
       <div className="site-header__actions">
-        <a
-          href={instagram.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${site.name} on Instagram`}
-          className="site-header__social"
-        >
-          <SocialIcon icon="instagram" />
-        </a>
+        {/* Phone: ☰ menu. Desktop (≥ 48rem): the links show in a row and the button hides (CSS only). */}
         <nav aria-label="Main" className="site-menu" ref={navRef}>
           <button
             ref={buttonRef}
@@ -81,6 +73,16 @@ export default function Header() {
             ))}
           </ul>
         </nav>
+        {/* After the links in the code (keyboard order on desktop); CSS moves it before ☰ on phones. */}
+        <a
+          href={instagram.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${site.name} on Instagram`}
+          className="site-header__social"
+        >
+          <SocialIcon icon="instagram" />
+        </a>
       </div>
     </header>
   )
