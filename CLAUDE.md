@@ -32,15 +32,15 @@ Tests: Vitest 5 + React Testing Library + jest-dom (jsdom; setup in `src/test/se
 
 ## Design system
 - `src/styles/tokens.css` is the **only** place for colours, fonts, the type scale and the
-  space scale (`--space-*`, `--text-*`, `--color-*`). Light/dark via `prefers-color-scheme`.
-- Warm paper page (cream light, warm charcoal dark), so the photos carry the colour. Space Grotesk (display) + Archivo (body),
+  space scale (`--space-*`, `--text-*`, `--color-*`). Light only (no dark mode, Nika's call 2026-11-13).
+- Milky white page (`#fbfaf7`), so the photos carry the colour. Space Grotesk (display) + Archivo (body),
   loaded in `index.html`.
 - Shared helpers in `global.css`: `.container` (page width + gutter), `.visually-hidden`.
 - Tap targets use `--tap-target` (44px). The first `EAGER_PHOTOS` photos (`albums.ts`) load eagerly.
 
 ## Done means
 1. `npm run lint` clean, `npx vitest run` green, `npm run build` passes (it includes `tsc -b`).
-2. UI changes: screenshots at **390 px and 1280 px, in light and dark**, with no sideways
+2. UI changes: screenshots at **390 px and 1280 px** (also with a dark-mode device: it must still show light), with no sideways
    scroll (`scrollWidth === innerWidth`). Playwright isn't a project dep: use `playwright-core`
    from the scratchpad with `channel: 'msedge'`.
 

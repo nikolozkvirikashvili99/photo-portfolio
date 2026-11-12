@@ -3,11 +3,11 @@
 
 :root {
   /* Colour (light) */
-  --color-bg: #f7f4ef; /* warm paper */
-  --color-surface: #efebe4;
+  --color-bg: #fbfaf7; /* milky white */
+  --color-surface: #f2f0eb;
   --color-text: #18181b;
   --color-text-muted: #52525b;
-  --color-border: #e2ddd4;
+  --color-border: #e6e3dd;
   --color-focus: #18181b;
 
   /* Type */
@@ -36,22 +36,11 @@
   --radius: 2px;
   --tap-target: 2.75rem; /* 44px: comfortable to hit with a finger */
 
-  color-scheme: light dark;
+  color-scheme: light; /* light only: every visitor sees the milky white page */
 }
 
 @media (min-width: 48rem) {
   :root {
     --page-gutter: var(--space-8);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121110; /* warm charcoal */
-    --color-surface: #1c1a18;
-    --color-text: #fafafa;
-    --color-text-muted: #a1a1aa;
-    --color-border: #2a2724;
-    --color-focus: #fafafa;
   }
 }
