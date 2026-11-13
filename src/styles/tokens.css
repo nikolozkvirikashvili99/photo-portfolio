@@ -10,6 +10,11 @@
   --color-border: #e5e1d9;
   --color-focus: #18181b;
 
+  /* Inverse (dark band: the footer) */
+  --color-inverse-bg: #121212; /* near-black: softer than #000 next to the milky page */
+  --color-inverse-text: #faf8f3;
+  --color-inverse-text-muted: #a1a1aa;
+
   /* Type */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Archivo', system-ui, sans-serif;

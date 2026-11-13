@@ -363,10 +363,12 @@ a {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  border-top: 1px solid var(--color-border);
+  background: var(--color-inverse-bg);
   padding-block: var(--space-8);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-inverse-text-muted);
+  /* Inside the footer, the dark focus ring would vanish on black: use the light one. */
+  --color-focus: var(--color-inverse-text);
 }
 
 .site-footer__inner {
@@ -391,13 +393,13 @@ a {
   place-items: center;
   width: var(--tap-target);
   height: var(--tap-target);
-  color: var(--color-text-muted);
+  color: var(--color-inverse-text-muted);
   border-radius: var(--radius);
   transition: color 150ms ease;
 }
 
 .social-links a:hover {
-  color: var(--color-text);
+  color: var(--color-inverse-text);
 }
 
 /* ---------- Reduced motion: every transition above, switched off ---------- */
