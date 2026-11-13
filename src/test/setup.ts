@@ -9,3 +9,16 @@ afterEach(() => cleanup())
 // switching between the gallery and an album.
 window.scrollTo = () => {}
 Element.prototype.scrollIntoView = () => {}
+
+// jsdom has no <dialog> behaviour either (the photo viewer uses one): a minimal stand-in.
+// Real browsers also close it on Esc and trap focus; those are checked in the browser, not here.
+if (!HTMLDialogElement.prototype.showModal) {
+  HTMLDialogElement.prototype.showModal = function (this: HTMLDialogElement) {
+    this.open = true
+  }
+  HTMLDialogElement.prototype.close = function (this: HTMLDialogElement) {
+    if (!this.open) return
+    this.open = false
+    this.dispatchEvent(new Event('close'))
+  }
+}

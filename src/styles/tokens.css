@@ -22,6 +22,11 @@
   --shadow-card-lift: 0 1.25rem 1.875rem rgb(43 33 28 / 0.28); /* espresso-tinted, not grey */
   --hover-speed: 380ms;
 
+  /* Full-screen photo viewer */
+  --color-viewer-backdrop: rgb(28 21 17 / 0.95); /* almost-solid espresso behind the photo */
+  --color-viewer-button: rgb(243 235 223 / 0.12);
+  --color-viewer-button-hover: rgb(243 235 223 / 0.24);
+
   /* Warm dark shade over photos, so text on them stays readable */
   --color-scrim: rgb(28 21 17 / 0.78);
   --color-scrim-soft: rgb(28 21 17 / 0.38);
