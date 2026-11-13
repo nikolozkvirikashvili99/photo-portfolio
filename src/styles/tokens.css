@@ -17,6 +17,10 @@
   --color-inverse-text: #faf8f3;
   --color-inverse-text-muted: #a1a1aa;
 
+  /* Shade over photos, so text on them stays readable */
+  --color-scrim: rgb(0 0 0 / 0.75);
+  --color-scrim-soft: rgb(0 0 0 / 0.35);
+
   /* Type */
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
