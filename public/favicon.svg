@@ -1,21 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
-  <!-- The header logo (A3 aperture badge) as the browser-tab icon.
+  <!-- The header logo's aperture (without MG, bold lines) as the browser-tab icon: readable at 16px.
        Light browser theme: black disc. Dark browser theme: white disc. So it's always visible.
        A favicon can't read tokens.css or load web fonts, so the colours are copied from the tokens
-       (#18181b, #faf8f3) and the MG uses a Bodoni-like system serif.
-       Lines are thicker than in the header logo so they show at 16px. -->
+       (#18181b, #faf8f3). -->
   <style>
     .disc { fill: #18181b; }
     .mark { stroke: #faf8f3; }
-    .mg { fill: #faf8f3; }
     @media (prefers-color-scheme: dark) {
       .disc { fill: #faf8f3; }
       .mark { stroke: #18181b; }
-      .mg { fill: #18181b; }
     }
   </style>
   <circle class="disc" cx="85" cy="85" r="85" />
-  <g class="mark" fill="none" stroke-width="7">
+  <g class="mark" fill="none" stroke-width="16">
     <polygon points="85,27 135.2,56 135.2,114 85,143 34.8,114 34.8,56" />
     <line x1="85" y1="27" x2="136.4" y2="23.7" />
     <line x1="135.2" y1="56" x2="163.8" y2="98.9" />
@@ -24,5 +21,4 @@
     <line x1="34.8" y1="114" x2="6.2" y2="71.1" />
     <line x1="34.8" y1="56" x2="57.6" y2="9.8" />
   </g>
-  <text class="mg" x="85" y="102" text-anchor="middle" font-family="'Bodoni Moda', Didot, 'Bodoni MT', 'Bodoni 72', Georgia, serif" font-size="50"><tspan font-weight="600">M</tspan><tspan font-style="italic" font-weight="500" dx="-4">G</tspan></text>
 </svg>
