@@ -12,6 +12,14 @@ describe('Intro', () => {
     expect(within(section).getByText(site.tagline)).toBeInTheDocument()
   })
 
+  it('shows the About text and the Selected Work list under the photo', () => {
+    render(<Intro />)
+    expect(screen.getByRole('heading', { level: 2, name: site.about.heading })).toBeInTheDocument()
+    for (const paragraph of site.about.paragraphs) expect(screen.getByText(paragraph)).toBeInTheDocument()
+    const list = screen.getByRole('list')
+    expect(within(list).getAllByRole('listitem')).toHaveLength(site.about.work.length)
+  })
+
   it('shows the background photo with alt text, loaded first', () => {
     render(<Intro />)
     const photo = screen.getByRole('img', { name: site.hero.alt })
