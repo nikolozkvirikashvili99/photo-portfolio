@@ -460,6 +460,13 @@ a {
   }
 }
 
+/* Selected Work (Credits.tsx): same look as the About text, between the album grid and the footer.
+   The grid above already leaves space under itself, so no extra space on top. */
+.about.credits {
+  padding-block-start: 0;
+  gap: 0; /* heading and list sit close; the heading's own margin is the space between them */
+}
+
 /* ---------- Gallery ---------- */
 .gallery {
   padding-block-end: var(--space-16);

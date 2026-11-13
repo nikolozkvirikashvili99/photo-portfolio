@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import Header from './components/Header.tsx'
 import Intro from './components/Intro.tsx'
 import Gallery from './components/Gallery.tsx'
+import Credits from './components/Credits.tsx'
 import Album from './components/Album.tsx'
 import Footer from './components/Footer.tsx'
 import { albumFromHash, albumHref } from './data/albums.ts'
@@ -45,6 +46,7 @@ export default function App() {
           <>
             <Intro />
             <Gallery />
+            <Credits />
           </>
         )}
       </main>

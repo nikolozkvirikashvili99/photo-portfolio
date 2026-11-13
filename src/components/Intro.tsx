@@ -34,14 +34,6 @@ export default function Intro() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <div className="about__work">
-          <h3 className="about__heading">{about.workHeading}</h3>
-          <ul className="about__list">
-            {about.work.map((job) => (
-              <li key={job}>{job}</li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   )
