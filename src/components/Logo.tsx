@@ -15,7 +15,7 @@ const blades = [
 // "A3" badge: a filled disc with a camera aperture and the MG monogram.
 // Colours come from CSS (.logo__*), so it follows the header's tokens.
 // aria-hidden: it sits next to the site name, which already labels the link.
-export default function Logo({ size = 40 }: LogoProps) {
+export default function Logo({ size = 56 }: LogoProps) {
   return (
     <svg
       className="logo"

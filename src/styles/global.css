@@ -73,6 +73,7 @@ a {
 .site-header {
   background: var(--color-bg); /* same milky white as the page */
   color: var(--color-text);
+  border-bottom: 1px solid var(--color-border); /* thin line: header above, page below, full width */
 }
 
 /* Width, centring and side gutter come from .container (on this inner div). */
