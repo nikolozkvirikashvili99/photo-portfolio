@@ -43,46 +43,49 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="site-header container">
-      <a href="/" className="site-header__name">
-        {site.name}
-      </a>
-      <div className="site-header__actions">
-        {/* Phone: ☰ menu. Desktop (≥ 48rem): the links show in a row and the button hides (CSS only). */}
-        <nav aria-label="Main" className="site-menu" ref={navRef}>
-          <button
-            ref={buttonRef}
-            type="button"
-            className="site-menu__button"
-            // Tells screen readers if the menu is open, and which list it controls.
-            aria-expanded={open}
-            aria-controls="site-menu-list"
-            onClick={() => setOpen((isOpen) => !isOpen)}
-          >
-            <span className="visually-hidden">Menu</span>
-            {/* Three lines (☰) that turn into an X when open; drawn in CSS. */}
-            <span className="site-menu__icon" aria-hidden="true" />
-          </button>
-          <ul id="site-menu-list" className="site-menu__list" hidden={!open}>
-            {links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} onClick={() => setOpen(false)}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        {/* After the links in the code (keyboard order on desktop); CSS moves it before ☰ on phones. */}
-        <a
-          href={instagram.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${site.name} on Instagram`}
-          className="site-header__social"
-        >
-          <SocialIcon icon="instagram" />
+    <header className="site-header">
+      {/* The black band spans the full width; this inner div keeps the content in line with the page. */}
+      <div className="container site-header__inner">
+        <a href="/" className="site-header__name">
+          {site.name}
         </a>
+        <div className="site-header__actions">
+          {/* Phone: ☰ menu. Desktop (≥ 48rem): the links show in a row and the button hides (CSS only). */}
+          <nav aria-label="Main" className="site-menu" ref={navRef}>
+            <button
+              ref={buttonRef}
+              type="button"
+              className="site-menu__button"
+              // Tells screen readers if the menu is open, and which list it controls.
+              aria-expanded={open}
+              aria-controls="site-menu-list"
+              onClick={() => setOpen((isOpen) => !isOpen)}
+            >
+              <span className="visually-hidden">Menu</span>
+              {/* Three lines (☰) that turn into an X when open; drawn in CSS. */}
+              <span className="site-menu__icon" aria-hidden="true" />
+            </button>
+            <ul id="site-menu-list" className="site-menu__list" hidden={!open}>
+              {links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} onClick={() => setOpen(false)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {/* After the links in the code (keyboard order on desktop); CSS moves it before ☰ on phones. */}
+          <a
+            href={instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${site.name} on Instagram`}
+            className="site-header__social"
+          >
+            <SocialIcon icon="instagram" />
+          </a>
+        </div>
       </div>
     </header>
   )

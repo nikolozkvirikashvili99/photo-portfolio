@@ -68,14 +68,26 @@ a {
 }
 
 /* ---------- Header ---------- */
-/* Width, centring and side gutter come from .container. */
+/* Black band, full width. Inside it the colour tokens switch to their dark versions,
+   so the name, icons, ☰ dropdown and focus ring all follow without their own rules. */
 .site-header {
+  --color-bg: var(--color-inverse-bg);
+  --color-surface: var(--color-inverse-surface);
+  --color-text: var(--color-inverse-text);
+  --color-text-muted: var(--color-inverse-text-muted);
+  --color-border: var(--color-inverse-border);
+  --color-focus: var(--color-inverse-text);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Width, centring and side gutter come from .container (on this inner div). */
+.site-header__inner {
   padding-block: var(--space-4);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__name {
@@ -115,7 +127,9 @@ a {
   place-items: center;
   width: var(--tap-target);
   height: var(--tap-target);
-  margin-inline-end: calc(var(--space-3) * -1); /* icon lines up with the page edge */
+  margin-inline-end: calc(
+    var(--space-3) * -1
+  ); /* icon lines up with the page edge */
   padding: 0;
   background: none;
   border: 0;
@@ -240,7 +254,9 @@ a {
 
   .site-header__social {
     order: 0;
-    margin-inline-end: calc(var(--space-3) * -1); /* icon lines up with the page edge */
+    margin-inline-end: calc(
+      var(--space-3) * -1
+    ); /* icon lines up with the page edge */
   }
 }
 
