@@ -95,7 +95,7 @@ a {
 
 /* Width, centring and side gutter come from .container (on this inner div). */
 .site-header__inner {
-  padding-block: var(--space-4);
+  padding-block: var(--header-pad); /* phones 12px, desktop 16px (tokens.css) */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -113,7 +113,9 @@ a {
 /* Disc in the text colour, lines and MG in the background colour.
    In the black header that means a white disc with black lines. */
 .logo {
-  flex-shrink: 0; /* the name wraps on small phones; the badge keeps its size */
+  flex-shrink: 0; /* the badge keeps its size */
+  width: var(--logo-size); /* phones 48px, desktop 56px (tokens.css); beats the width="56" in the HTML */
+  height: var(--logo-size);
 }
 
 .logo__disc {
@@ -381,10 +383,12 @@ a {
 }
 
 /* ---------- About text (under the About photo) ---------- */
+/* Centred on every screen: headings, paragraphs and the job list. */
 .about {
   display: grid;
   gap: var(--space-8);
   padding-block-end: var(--space-12);
+  text-align: center;
 }
 
 /* Bold spaced-out capitals with a short line under them: "ABOUT ME", "SELECTED WORK" */
@@ -396,13 +400,13 @@ a {
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-text);
-  /* The short line: a 2.5rem x 2px strip drawn as a background (no extra element needed).
-     Phones: under the start of the heading. Desktop (text centred): see the media query below. */
-  background: linear-gradient(var(--color-text), var(--color-text)) left bottom / 2.5rem 2px no-repeat;
+  /* The short centred line: a 2.5rem x 2px strip drawn as a background (no extra element needed). */
+  background: linear-gradient(var(--color-text), var(--color-text)) center bottom / 2.5rem 2px no-repeat;
 }
 
 .about__text p {
   max-width: 65ch; /* comfortable line length for reading */
+  margin-inline: auto; /* the paragraphs sit in the middle */
 }
 
 .about__text p + p {
@@ -414,49 +418,26 @@ a {
   margin: 0;
   padding: 0;
   display: grid;
+  justify-items: center;
   gap: var(--space-3);
 }
 
-/* The dash in front of each job (written by the page, not in the text) */
 .about__list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-2);
+  text-wrap: balance; /* a long job wraps into even lines, not one lonely word */
 }
 
+/* The dash in front of each job (written by the page, not in the text) */
 .about__list li::before {
   content: "—";
+  margin-inline-end: var(--space-2);
   color: var(--color-text-muted);
 }
 
-/* Desktop: a narrower block in the middle, with more space on the sides than the photo row above,
-   and every line centred. (Phones keep the text aligned left: easier to read on a narrow screen.) */
+/* Desktop: a narrower block in the middle, with more space on the sides than the photo row above. */
 @media (min-width: 48rem) {
   .about {
     max-width: var(--reading-max);
     padding-block-start: var(--space-8);
-    text-align: center;
-  }
-
-  .about__text p {
-    margin-inline: auto; /* the 65ch-wide paragraphs sit in the middle too */
-  }
-
-  .about__heading {
-    background-position: center bottom; /* the short line under the centred heading */
-  }
-
-  .about__list {
-    justify-items: center;
-  }
-
-  .about__list li {
-    display: block; /* one centred line: dash + text */
-    text-wrap: balance; /* a long job wraps into two even lines, not one lonely word */
-  }
-
-  .about__list li::before {
-    margin-inline-end: var(--space-2); /* space between the dash and the text */
   }
 }
 
@@ -469,7 +450,26 @@ a {
 
 /* ---------- Gallery ---------- */
 .gallery {
-  padding-block-end: var(--space-16);
+  padding-block-end: var(--space-12);
+}
+
+/* Thin lines above and below the album grid (About me | albums | Selected Work),
+   in the same espresso as the short line under the headings. Drawn inside the gallery,
+   so they're exactly as wide as the grid. */
+.gallery::before,
+.gallery::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--color-text);
+}
+
+.gallery::before {
+  margin-block-end: var(--space-12);
+}
+
+.gallery::after {
+  margin-block-start: var(--space-12);
 }
 
 .gallery__grid {

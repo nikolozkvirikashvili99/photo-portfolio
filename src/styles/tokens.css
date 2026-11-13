@@ -49,13 +49,20 @@
   --page-gutter: var(--space-4);
   --radius: 2px;
   --tap-target: 2.75rem; /* 44px: comfortable to hit with a finger */
-  --header-height: 5.5rem; /* 88px = 56px logo + header padding; change with the logo size */
+  /* Header: phones a little slimmer (72px), desktop 88px. header-height = logo + 2 x header padding;
+     change them together (it keeps menu jumps landing just below the frozen header). */
+  --logo-size: 3rem; /* 48px */
+  --header-pad: var(--space-3); /* 12px above and below */
+  --header-height: 4.5rem; /* 72px = 48 + 2 x 12 */
 
-  color-scheme: light; /* light only: every visitor sees the milky white page */
+  color-scheme: light; /* light only: every visitor sees the same warm page */
 }
 
 @media (min-width: 48rem) {
   :root {
     --page-gutter: var(--space-8);
+    --logo-size: 3.5rem; /* 56px */
+    --header-pad: var(--space-4); /* 16px */
+    --header-height: 5.5rem; /* 88px = 56 + 2 x 16 */
   }
 }
