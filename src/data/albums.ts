@@ -1,14 +1,15 @@
 // The albums, in display order. Each album's files live in public/albums/<slug>/.
 // The FIRST photo of each album is its cover in the gallery.
 //
-// To use your own photos:
-//   1. Copy your photos over public/albums/weddings/01.jpg, 02.jpg, … (same names).
-//      Long side about 2000px keeps the page fast.
-//   2. Write a real `alt` for each: what someone who can't see the photo should know.
-//   3. More photos? Add 09.jpg and a line. New album? Add a folder + a block below.
-//      `slug` is the folder name and the link (#album/weddings): lowercase, no spaces.
-//   4. Landscape photo? Add its size: ['03.jpg', 'alt', 1000, 800].
-//      Portrait 800×1000 is the default.
+// To add a photo to an album:
+//   1. Put it in the album's folder with the next number: public/albums/weddings/02.jpg, 03.jpg, …
+//      Long side about 2000px keeps the page fast (phone originals are 4000-6000px: shrink them).
+//   2. Add a line under that album's photos: ['02.jpg', 'what the photo shows', width, height].
+//      The alt text is what someone who can't see the photo should know.
+//   3. New album? Add a folder + a block below. `slug` is the folder name and the link
+//      (#album/weddings): lowercase, no spaces.
+//   width/height are the file's pixel size (they stop the page jumping while photos load);
+//   left out, 800×1000 (portrait) is assumed.
 /** [file, alt, width?, height?]: one line per photo in the list below. */
 type PhotoEntry = [file: string, alt: string, width?: number, height?: number]
 
@@ -35,72 +36,31 @@ export interface Album {
 
 const data: AlbumEntry[] = [
   {
+    slug: 'fashion',
+    title: 'Fashion',
+    photos: [
+      ['01.jpg', 'Model backstage in a black lace jumpsuit and laced leather corset, arms raised as dark fabric swirls around her', 1333, 2000],
+    ],
+  },
+  {
+    slug: 'brands',
+    title: 'Brands',
+    photos: [
+      ['01.jpg', 'Model seen from behind in a white sequined open-back dress with a chain of crystal flowers down the spine', 1333, 2000],
+    ],
+  },
+  {
     slug: 'weddings',
     title: 'Weddings',
     photos: [
-      ['01.jpg', 'Weddings placeholder 1'],
-      ['02.jpg', 'Weddings placeholder 2'],
-      ['03.jpg', 'Weddings placeholder 3'],
-      ['04.jpg', 'Weddings placeholder 4'],
-      ['05.jpg', 'Weddings placeholder 5'],
-      ['06.jpg', 'Weddings placeholder 6'],
-      ['07.jpg', 'Weddings placeholder 7'],
-      ['08.jpg', 'Weddings placeholder 8'],
+      ['01.jpg', 'Bride in a satin gown with a long train smiling up at the camera as the groom holds her hand, seen from above', 1500, 2000],
     ],
   },
   {
     slug: 'portraits',
     title: 'Portraits',
     photos: [
-      ['01.jpg', 'Portraits placeholder 1'],
-      ['02.jpg', 'Portraits placeholder 2'],
-      ['03.jpg', 'Portraits placeholder 3'],
-      ['04.jpg', 'Portraits placeholder 4'],
-      ['05.jpg', 'Portraits placeholder 5'],
-      ['06.jpg', 'Portraits placeholder 6'],
-    ],
-  },
-  {
-    slug: 'couples',
-    title: 'Couples',
-    photos: [
-      ['01.jpg', 'Couples placeholder 1'],
-      ['02.jpg', 'Couples placeholder 2'],
-      ['03.jpg', 'Couples placeholder 3'],
-      ['04.jpg', 'Couples placeholder 4'],
-    ],
-  },
-  {
-    slug: 'family',
-    title: 'Family',
-    photos: [
-      ['01.jpg', 'Family placeholder 1'],
-      ['02.jpg', 'Family placeholder 2'],
-      ['03.jpg', 'Family placeholder 3'],
-      ['04.jpg', 'Family placeholder 4'],
-      ['05.jpg', 'Family placeholder 5'],
-    ],
-  },
-  {
-    slug: 'everyday',
-    title: 'Everyday moments',
-    photos: [
-      ['01.jpg', 'Everyday moments placeholder 1'],
-      ['02.jpg', 'Everyday moments placeholder 2'],
-      ['03.jpg', 'Everyday moments placeholder 3'],
-      ['04.jpg', 'Everyday moments placeholder 4'],
-      ['05.jpg', 'Everyday moments placeholder 5'],
-      ['06.jpg', 'Everyday moments placeholder 6'],
-      ['07.jpg', 'Everyday moments placeholder 7'],
-    ],
-  },
-  {
-    slug: 'nature',
-    title: 'Nature',
-    photos: [
-      ['01.jpg', 'Nature placeholder 1'],
-      ['02.jpg', 'Nature placeholder 2'],
-      ['03.jpg', 'Nature placeholder 3'],
+      ['01.jpg', 'Black-and-white portrait of a woman leaning against a wall by a window', 1333, 2000],
     ],
   },
 ]

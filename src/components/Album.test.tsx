@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
 import Album from './Album.tsx'
-import { albums, EAGER_PHOTOS } from '../data/albums.ts'
+import { albums, EAGER_PHOTOS, photoCountLabel } from '../data/albums.ts'
 
 const album = albums[0]
 
@@ -14,7 +14,8 @@ describe('Album', () => {
 
   it('shows how many photos it has', () => {
     render(<Album album={album} />)
-    expect(screen.getByText(`${album.photos.length} photos`)).toBeInTheDocument()
+    // "1 photo" / "8 photos": the same wording the page uses.
+    expect(screen.getByText(photoCountLabel(album.photos.length))).toBeInTheDocument()
   })
 
   it('shows every photo with its alt text, first row eager', () => {
