@@ -42,6 +42,7 @@
   --page-gutter: var(--space-4);
   --radius: 2px;
   --tap-target: 2.75rem; /* 44px: comfortable to hit with a finger */
+  --header-height: 5.5rem; /* 88px = 56px logo + header padding; change with the logo size */
 
   color-scheme: light; /* light only: every visitor sees the milky white page */
 }

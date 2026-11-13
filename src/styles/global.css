@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+/* Jumps to #work / #about / #contact stop below the frozen header, not under it. */
+html {
+  scroll-padding-top: var(--header-height);
+}
+
 body {
   margin: 0;
   background: var(--color-bg);
@@ -81,6 +86,11 @@ a {
   --color-focus: var(--color-inverse-text);
   background: var(--color-bg);
   color: var(--color-text);
+  /* Frozen at the top while scrolling (phones and desktop). Sticky, not fixed:
+     it keeps its place in the page, so nothing below needs extra space. */
+  position: sticky;
+  top: 0;
+  z-index: 20; /* above the photos and album cards scrolling underneath */
 }
 
 /* Width, centring and side gutter come from .container (on this inner div). */
