@@ -10,8 +10,9 @@
   --color-border: #e5e1d9;
   --color-focus: #18181b;
 
-  /* Inverse (dark band: the footer) */
+  /* Inverse (dark bands: header and footer) */
   --color-inverse-bg: #030303; /* deep black */
+  --color-inverse-surface: #1c1c1e; /* menu hover on black */
   --color-inverse-border: #2e2e32;
   --color-inverse-text: #faf8f3;
   --color-inverse-text-muted: #a1a1aa;

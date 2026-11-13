@@ -70,10 +70,17 @@ a {
 /* ---------- Header ---------- */
 /* Black band, full width. Inside it the colour tokens switch to their dark versions,
    so the name, icons, ☰ dropdown and focus ring all follow without their own rules. */
+/* Black band, full width. Inside it the colour tokens switch to their dark versions,
+   so the logo (white disc), icons, ☰ dropdown and focus ring all follow without their own rules. */
 .site-header {
-  background: var(--color-bg); /* same milky white as the page */
+  --color-bg: var(--color-inverse-bg);
+  --color-surface: var(--color-inverse-surface);
+  --color-text: var(--color-inverse-text);
+  --color-text-muted: var(--color-inverse-text-muted);
+  --color-border: var(--color-inverse-border);
+  --color-focus: var(--color-inverse-text);
+  background: var(--color-bg);
   color: var(--color-text);
-  border-bottom: 1px solid var(--color-border); /* thin line: header above, page below, full width */
 }
 
 /* Width, centring and side gutter come from .container (on this inner div). */
@@ -93,7 +100,8 @@ a {
 }
 
 /* ---------- Logo (A3 aperture badge) ---------- */
-/* Disc in the text colour (near-black), lines and MG in the page colour (milky white). */
+/* Disc in the text colour, lines and MG in the background colour.
+   In the black header that means a white disc with black lines. */
 .logo {
   flex-shrink: 0; /* the name wraps on small phones; the badge keeps its size */
 }
