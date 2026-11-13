@@ -127,7 +127,7 @@ a {
 }
 
 .logo__monogram {
-  font-family: var(--font-logo);
+  font-family: var(--font-serif);
   font-size: 46px; /* in the 170-unit drawing, not screen pixels */
   fill: var(--color-bg);
 }
@@ -333,13 +333,17 @@ a {
   padding-block: var(--space-12) var(--space-8);
 }
 
+/* The name and the line under it: Bodoni Moda, like the logo's MG */
 .intro__title {
+  font-family: var(--font-serif);
   font-size: var(--text-xl);
 }
 
 .intro p {
   max-width: 40ch;
+  font-family: var(--font-serif);
   font-size: var(--text-lg);
+  font-weight: 400;
 }
 
 /* Tablet and desktop: the whole photo on the left (nothing cropped), name and text beside it

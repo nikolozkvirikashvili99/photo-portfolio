@@ -35,7 +35,7 @@ export interface Site {
 export const site: Site = {
   name: 'Maia Gabunia Photography',
   // The line under the name on the About photo: change it here.
-  tagline: 'Portraits, weddings and quiet everyday moments.',
+  tagline: 'Fashion, campaigns, portraits & editorial weddings.',
   // Background photo of the About section (public/about/). Swap a photo: same file names, or change these.
   hero: {
     src: '/about/hero-1200.jpg',

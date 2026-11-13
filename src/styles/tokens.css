@@ -24,7 +24,8 @@
   /* Type */
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
-  --font-logo: "Bodoni Moda", Didot, serif; /* the MG in the logo only */  --text-sm: 0.875rem;
+  --font-serif: "Bodoni Moda", Didot, Georgia, serif; /* the logo's MG and the About name + line */
+  --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;
   --text-xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);
