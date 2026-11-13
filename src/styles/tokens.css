@@ -20,6 +20,8 @@
   /* Type */
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
+  --font-logo: "Bodoni Moda", Didot, serif; /* the MG in the logo only */
+  --font-brand: "Fraunces", Georgia, serif; /* header name: 70s vintage serif (free look-alike of Bright Vintage) */
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;

@@ -91,9 +91,36 @@ a {
 }
 
 .site-header__name {
-  font-family: var(--font-display);
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-brand);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  line-height: var(--leading-tight);
   text-decoration: none;
+}
+
+/* ---------- Logo (A3 aperture badge) ---------- */
+/* Light disc, dark lines: inside the black header --color-text is light and --color-bg is black. */
+.logo {
+  flex-shrink: 0; /* the name wraps on small phones; the badge keeps its size */
+}
+
+.logo__disc {
+  fill: var(--color-text);
+}
+
+.logo__aperture {
+  fill: none;
+  stroke: var(--color-bg);
+  stroke-width: 4; /* in the 170-unit drawing: thick enough to see at 40px */
+}
+
+.logo__monogram {
+  font-family: var(--font-logo);
+  font-size: 46px; /* in the 170-unit drawing, not screen pixels */
+  fill: var(--color-bg);
 }
 
 /* Right side of the header: Instagram logo + ☰ button, side by side. */

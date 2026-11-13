@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { site } from '../data/site.ts'
 import SocialIcon from './SocialIcon.tsx'
+import Logo from './Logo.tsx'
 
 // Each href matches a section id on the page: #work (Gallery), #about (Intro), #contact (Footer).
 const links = [
@@ -47,7 +48,8 @@ export default function Header() {
       {/* The black band spans the full width; this inner div keeps the content in line with the page. */}
       <div className="container site-header__inner">
         <a href="/" className="site-header__name">
-          {site.name}
+          <Logo />
+          <span>{site.name}</span>
         </a>
         <div className="site-header__actions">
           {/* Phone: ☰ menu. Desktop (≥ 48rem): the links show in a row and the button hides (CSS only). */}
