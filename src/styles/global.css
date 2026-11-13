@@ -654,6 +654,12 @@ html:has(.viewer[open]) {
   right: var(--space-4);
 }
 
+/* The × is invisible: close by tapping beside the photo. It's still there (a tap in the corner
+   works too), and it shows for keyboard users, who need to see where they are. */
+.viewer__close:not(:focus-visible) {
+  opacity: 0;
+}
+
 .viewer__prev,
 .viewer__next {
   top: 50%;
