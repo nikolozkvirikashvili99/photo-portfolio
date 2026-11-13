@@ -10,9 +10,8 @@
   --color-border: #e5e1d9;
   --color-focus: #18181b;
 
-  /* Inverse (dark bands: header and footer) */
+  /* Inverse (dark band: the footer) */
   --color-inverse-bg: #030303; /* deep black */
-  --color-inverse-surface: #1c1c1e; /* menu hover on black */
   --color-inverse-border: #2e2e32;
   --color-inverse-text: #faf8f3;
   --color-inverse-text-muted: #a1a1aa;
@@ -20,9 +19,7 @@
   /* Type */
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
-  --font-logo: "Bodoni Moda", Didot, serif; /* the MG in the logo only */
-  --font-brand: "Fraunces", Georgia, serif; /* header name: 70s vintage serif (free look-alike of Bright Vintage) */
-  --text-sm: 0.875rem;
+  --font-logo: "Bodoni Moda", Didot, serif; /* the MG in the logo only */  --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;
   --text-xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);

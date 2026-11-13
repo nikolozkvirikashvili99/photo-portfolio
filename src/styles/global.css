@@ -71,13 +71,7 @@ a {
 /* Black band, full width. Inside it the colour tokens switch to their dark versions,
    so the name, icons, ☰ dropdown and focus ring all follow without their own rules. */
 .site-header {
-  --color-bg: var(--color-inverse-bg);
-  --color-surface: var(--color-inverse-surface);
-  --color-text: var(--color-inverse-text);
-  --color-text-muted: var(--color-inverse-text-muted);
-  --color-border: var(--color-inverse-border);
-  --color-focus: var(--color-inverse-text);
-  background: var(--color-bg);
+  background: var(--color-bg); /* same milky white as the page */
   color: var(--color-text);
 }
 
@@ -90,19 +84,15 @@ a {
   gap: var(--space-4);
 }
 
+/* Home link: just the logo (the name inside is visually hidden). */
 .site-header__name {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-brand);
-  font-size: var(--text-lg);
-  font-weight: 800;
-  line-height: var(--leading-tight);
-  text-decoration: none;
+  border-radius: 50%; /* the focus ring follows the round badge */
 }
 
 /* ---------- Logo (A3 aperture badge) ---------- */
-/* Light disc, dark lines: inside the black header --color-text is light and --color-bg is black. */
+/* Disc in the text colour (near-black), lines and MG in the page colour (milky white). */
 .logo {
   flex-shrink: 0; /* the name wraps on small phones; the badge keeps its size */
 }

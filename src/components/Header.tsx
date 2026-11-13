@@ -49,7 +49,8 @@ export default function Header() {
       <div className="container site-header__inner">
         <a href="/" className="site-header__name">
           <Logo />
-          <span>{site.name}</span>
+          {/* Not shown, but screen readers and search engines still read the name. */}
+          <span className="visually-hidden">{site.name}</span>
         </a>
         <div className="site-header__actions">
           {/* Phone: ☰ menu. Desktop (≥ 48rem): the links show in a row and the button hides (CSS only). */}
