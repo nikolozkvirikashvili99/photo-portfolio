@@ -17,6 +17,11 @@
   --color-inverse-text: #f3ebdf;
   --color-inverse-text-muted: #c2b29f; /* 7.6:1 on espresso */
 
+  /* Album card hover: lift + soft warm shadow ("Strong") */
+  --card-lift: 0.625rem; /* 10px up */
+  --shadow-card-lift: 0 1.25rem 1.875rem rgb(43 33 28 / 0.28); /* espresso-tinted, not grey */
+  --hover-speed: 380ms;
+
   /* Warm dark shade over photos, so text on them stays readable */
   --color-scrim: rgb(28 21 17 / 0.78);
   --color-scrim-soft: rgb(28 21 17 / 0.38);

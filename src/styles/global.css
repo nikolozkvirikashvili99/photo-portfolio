@@ -501,11 +501,12 @@ a {
   gap: var(--space-1);
   text-decoration: none;
   border-radius: var(--radius);
+  transition: transform var(--hover-speed) ease;
 }
 
 .album-card__image {
   margin-block-end: var(--space-2);
-  transition: opacity 200ms ease;
+  transition: box-shadow var(--hover-speed) ease;
 }
 
 .album-card__title {
@@ -517,15 +518,25 @@ a {
   font-size: var(--text-sm);
 }
 
-/* Hover or keyboard focus: the photo fades slightly and the title underlines, so it reads as a link. */
-.album-card:hover .album-card__image,
-.album-card:focus-visible .album-card__image {
-  opacity: 0.85;
+/* Lift: the card rises with a soft shadow, like a print being picked up. No fading.
+   Mouse hover only on devices that really hover (a tap on a phone would leave it stuck up);
+   keyboard focus lifts it everywhere, next to the focus outline. */
+@media (hover: hover) {
+  .album-card:hover {
+    transform: translateY(calc(var(--card-lift) * -1));
+  }
+
+  .album-card:hover .album-card__image {
+    box-shadow: var(--shadow-card-lift);
+  }
 }
 
-.album-card:hover .album-card__title,
-.album-card:focus-visible .album-card__title {
-  text-decoration: underline;
+.album-card:focus-visible {
+  transform: translateY(calc(var(--card-lift) * -1));
+}
+
+.album-card:focus-visible .album-card__image {
+  box-shadow: var(--shadow-card-lift);
 }
 
 /* ---------- Album page ---------- */
@@ -645,6 +656,7 @@ a {
   .site-menu__icon,
   .site-menu__icon::before,
   .site-menu__icon::after,
+  .album-card,
   .album-card__image,
   .social-links a {
     transition: none;
