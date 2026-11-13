@@ -15,4 +15,11 @@ describe('Footer', () => {
       `tel:${site.phone}`,
     )
   })
+
+  it('shows an icon in front of the email and the phone number', () => {
+    render(<Footer />)
+    for (const name of [site.email, site.phone]) {
+      expect(screen.getByRole('link', { name }).querySelector('svg')).not.toBeNull()
+    }
+  })
 })

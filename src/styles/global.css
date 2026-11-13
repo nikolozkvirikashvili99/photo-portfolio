@@ -509,6 +509,7 @@ a {
 .site-footer__links a {
   display: inline-flex;
   align-items: center;
+  gap: var(--space-2); /* space between the icon and the address/number */
   min-height: var(--tap-target);
   color: var(--color-inverse-text);
   text-decoration: none;
