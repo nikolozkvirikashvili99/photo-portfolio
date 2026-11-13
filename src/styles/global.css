@@ -383,13 +383,18 @@ a {
   padding-block-end: var(--space-12);
 }
 
-/* Small spaced-out capitals: "ABOUT ME", "SELECTED WORK" */
+/* Bold spaced-out capitals with a short line under them: "ABOUT ME", "SELECTED WORK" */
 .about__heading {
   margin-block-end: var(--space-4);
-  font-size: var(--text-sm);
+  padding-block-end: var(--space-2); /* room for the line */
+  font-size: var(--text-base);
+  font-weight: 600;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text);
+  /* The short line: a 2.5rem x 2px strip drawn as a background (no extra element needed).
+     Phones: under the start of the heading. Desktop (text centred): see the media query below. */
+  background: linear-gradient(var(--color-text), var(--color-text)) left bottom / 2.5rem 2px no-repeat;
 }
 
 .about__text p {
@@ -431,6 +436,10 @@ a {
 
   .about__text p {
     margin-inline: auto; /* the 65ch-wide paragraphs sit in the middle too */
+  }
+
+  .about__heading {
+    background-position: center bottom; /* the short line under the centred heading */
   }
 
   .about__list {
