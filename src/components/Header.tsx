@@ -1,47 +1,47 @@
-import { useEffect, useRef, useState } from 'react'
-import { site } from '../data/site.ts'
-import SocialIcon from './SocialIcon.tsx'
-import Logo from './Logo.tsx'
+import { useEffect, useRef, useState } from "react";
+import { site } from "../data/site.ts";
+import SocialIcon from "./SocialIcon.tsx";
+import Logo from "./Logo.tsx";
 
 // Each href matches a section id on the page: #work (Gallery), #about (Intro), #contact (Footer).
 const links = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "gallery", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 // The one social profile shown in the header (all of them are in the footer).
 // '!': site.ts always lists Instagram (Header.test checks the link exists).
-const instagram = site.socials.find((social) => social.icon === 'instagram')!
+const instagram = site.socials.find((social) => social.icon === "instagram")!;
 
 export default function Header() {
   // Remembers whether the menu is open. Starts closed.
-  const [open, setOpen] = useState(false)
-  const navRef = useRef<HTMLElement>(null) // the whole menu (button + list)
-  const buttonRef = useRef<HTMLButtonElement>(null) // the ☰ button, to give focus back to it
+  const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null); // the whole menu (button + list)
+  const buttonRef = useRef<HTMLButtonElement>(null); // the ☰ button, to give focus back to it
 
   // While the menu is open, listen to the whole page for Escape and outside clicks.
   useEffect(() => {
-    if (!open) return
+    if (!open) return;
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setOpen(false)
-        buttonRef.current!.focus() // keyboard users land back where they were
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current!.focus(); // keyboard users land back where they were
       }
     }
     function onPointerDown(event: PointerEvent) {
-      if (!navRef.current!.contains(event.target as Node)) setOpen(false)
+      if (!navRef.current!.contains(event.target as Node)) setOpen(false);
     }
 
-    document.addEventListener('keydown', onKeyDown)
-    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
     // Cleanup: stop listening when the menu closes (or the Header goes away).
     return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.removeEventListener('pointerdown', onPointerDown)
-    }
-  }, [open])
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [open]);
 
   return (
     <header className="site-header">
@@ -91,5 +91,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

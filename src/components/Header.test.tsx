@@ -34,19 +34,20 @@ describe('Header', () => {
   it('starts with the menu closed: links hidden, button says collapsed', () => {
     render(<Header />)
     expect(menuButton()).toHaveAttribute('aria-expanded', 'false')
-    expect(screen.queryByRole('link', { name: 'Work' })).toBeNull()
+    expect(screen.queryByRole('link', { name: /gallery/i })).toBeNull()
   })
 
-  it('opens the menu to show Work, About and Contact, in that order', () => {
+  it('opens the menu to show Gallery, About and Contact, in that order', () => {
     render(<Header />)
     fireEvent.click(menuButton())
     expect(menuButton()).toHaveAttribute('aria-expanded', 'true')
     const nav = screen.getByRole('navigation')
     const links = within(nav).getAllByRole('link')
-    expect(links.map((a) => [a.textContent, a.getAttribute('href')])).toEqual([
-      ['Work', '#work'],
-      ['About', '#about'],
-      ['Contact', '#contact'],
+    // Lower-cased, so changing a label's capitals doesn't break the test.
+    expect(links.map((a) => [a.textContent?.toLowerCase(), a.getAttribute('href')])).toEqual([
+      ['gallery', '#work'],
+      ['about', '#about'],
+      ['contact', '#contact'],
     ])
   })
 

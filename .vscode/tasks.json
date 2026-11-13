@@ -1,0 +1,37 @@
+{
+  // Two ways to put your changes on maiagabunia.com (both run lint + tests + build first,
+  // and publish only if all pass):
+  //  - "Publish on save": starts by itself when this folder opens. Every Ctrl+S publishes
+  //    (~35-40 s). Turn it off: trash-can icon on its terminal tab.
+  //  - "Publish to live site": Ctrl+Shift+B, asks for a message, publishes once.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Publish on save",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "autoship"],
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": false },
+      "problemMatcher": []
+    },
+    {
+      "label": "Publish to live site",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "ship", "--", "${input:message}"],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true, "focus": true },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "message",
+      "type": "promptString",
+      "description": "What did you change? (saved as the commit message)",
+      "default": "Update site"
+    }
+  ]
+}

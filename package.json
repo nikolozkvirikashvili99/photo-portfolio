@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "test": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ship": "node scripts/ship.mjs",
+    "autoship": "node scripts/autoship.mjs"
   },
   "dependencies": {
     "react": "^19.3.1",
