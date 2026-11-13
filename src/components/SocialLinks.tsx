@@ -14,7 +14,7 @@ export default function SocialLinks() {
             // The link shows only a logo, so this is the text a screen reader says.
             aria-label={`${site.name} on ${social.name}`}
           >
-            <SocialIcon icon={social.icon} />
+            <SocialIcon icon={social.icon} size={28} />
           </a>
         </li>
       ))}
