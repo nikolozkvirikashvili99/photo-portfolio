@@ -308,15 +308,6 @@ a {
   color: var(--color-inverse-text);
 }
 
-/* Tablet and desktop: the whole photo, uncropped. The box takes the photo's own shape (3:2),
-   so object-fit: cover has nothing to cut off. A new photo with another shape: change 3 / 2. */
-@media (min-width: 48rem) {
-  .intro {
-    min-height: 0;
-    aspect-ratio: 3 / 2;
-  }
-}
-
 .intro__photo {
   position: absolute;
   inset: 0;
@@ -336,12 +327,6 @@ a {
   background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim) 70%, var(--color-scrim-soft) 100%);
 }
 
-@media (min-width: 48rem) {
-  .intro::after {
-    background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim-soft) 45%, transparent 75%);
-  }
-}
-
 .intro__content {
   display: grid;
   gap: var(--space-4);
@@ -355,6 +340,40 @@ a {
 .intro p {
   max-width: 40ch;
   font-size: var(--text-lg);
+}
+
+/* Tablet and desktop: the whole photo on the left (nothing cropped), name and text beside it
+   on the page colour. Same width and side gaps as the album grid below. Phones keep the banner above. */
+@media (min-width: 48rem) {
+  .intro {
+    display: grid;
+    grid-template-columns: 45% 1fr; /* photo column: ~550px wide = one album card tall at 1280px */
+    align-items: center;
+    gap: var(--space-12);
+    min-height: 0;
+    width: min(100% - 2 * var(--page-gutter), var(--page-max) - 2 * var(--page-gutter));
+    margin: var(--space-6) auto var(--space-8);
+    color: var(--color-text);
+  }
+
+  .intro::after {
+    display: none; /* no shade: the text isn't on the photo any more */
+  }
+
+  .intro__photo {
+    position: static;
+    height: auto; /* follows the photo's own shape: the whole picture, uncropped */
+    border-radius: var(--radius); /* same corners as the album cards */
+  }
+
+  .intro__content {
+    width: auto;
+    padding: 0; /* the grid gap is the space between photo and text */
+  }
+
+  .intro p {
+    color: var(--color-text-muted);
+  }
 }
 
 /* ---------- Gallery ---------- */
