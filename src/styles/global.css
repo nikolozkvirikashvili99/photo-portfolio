@@ -303,9 +303,18 @@ a {
   isolation: isolate; /* keeps their z-index: -1 inside this section */
   display: flex;
   align-items: flex-end;
-  min-height: min(80svh, 44rem); /* tall on phones too: the photo crops at the sides, not shrinks */
+  min-height: min(36svh, 20rem); /* phones: slim banner (~300px); the photo crops a little at the sides */
   margin-block-end: var(--space-8);
   color: var(--color-inverse-text);
+}
+
+/* Tablet and desktop: the whole photo, uncropped. The box takes the photo's own shape (3:2),
+   so object-fit: cover has nothing to cut off. A new photo with another shape: change 3 / 2. */
+@media (min-width: 48rem) {
+  .intro {
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
 }
 
 .intro__photo {
@@ -317,13 +326,20 @@ a {
   object-fit: cover; /* fill the box, cropping the edges, never stretching */
 }
 
-/* Dark fade from the bottom, so the white text stays readable over the white gowns. */
+/* Dark fade from the bottom, so the white text stays readable over the white gowns.
+   Phones: the slim banner is mostly text, so the shade reaches higher. */
 .intro::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim-soft) 45%, transparent 75%);
+  background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim) 70%, var(--color-scrim-soft) 100%);
+}
+
+@media (min-width: 48rem) {
+  .intro::after {
+    background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim-soft) 45%, transparent 75%);
+  }
 }
 
 .intro__content {
