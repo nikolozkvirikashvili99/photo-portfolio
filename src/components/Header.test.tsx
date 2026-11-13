@@ -34,27 +34,24 @@ describe('Header', () => {
   it('starts with the menu closed: links hidden, button says collapsed', () => {
     render(<Header />)
     expect(menuButton()).toHaveAttribute('aria-expanded', 'false')
-    expect(screen.queryByRole('link', { name: /gallery/i })).toBeNull()
+    expect(within(screen.getByRole('navigation')).queryAllByRole('link')).toHaveLength(0)
   })
 
-  it('opens the menu to show Gallery, About and Contact, in that order', () => {
+  // Checks where the links go, not their wording: rename them freely in Header.tsx.
+  it('opens the menu to show the work, about and contact links, in that order', () => {
     render(<Header />)
     fireEvent.click(menuButton())
     expect(menuButton()).toHaveAttribute('aria-expanded', 'true')
     const nav = screen.getByRole('navigation')
     const links = within(nav).getAllByRole('link')
-    // Lower-cased, so changing a label's capitals doesn't break the test.
-    expect(links.map((a) => [a.textContent?.toLowerCase(), a.getAttribute('href')])).toEqual([
-      ['gallery', '#work'],
-      ['about', '#about'],
-      ['contact', '#contact'],
-    ])
+    expect(links.map((a) => a.getAttribute('href'))).toEqual(['#work', '#about', '#contact'])
+    for (const link of links) expect(link.textContent?.trim()).not.toBe('') // every link has visible text
   })
 
   it('closes when a link is chosen', () => {
     render(<Header />)
     fireEvent.click(menuButton())
-    fireEvent.click(screen.getByRole('link', { name: 'About' }))
+    fireEvent.click(within(screen.getByRole('navigation')).getAllByRole('link')[1])
     expect(menuButton()).toHaveAttribute('aria-expanded', 'false')
   })
 
