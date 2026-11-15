@@ -513,18 +513,9 @@ a {
   font-size: var(--text-lg);
 }
 
-.album-card__count {
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-}
-
+/* Same font as the About text: the body font at its normal size (inherited). */
 .album-card__description {
   margin-block-start: var(--space-1);
-  font-family: var(--font-caption);
-  font-style: italic;
-  font-weight: 500;
-  font-size: var(--text-caption);
-  line-height: 1.35;
 }
 
 /* Lift: the card rises with a soft shadow, like a print being picked up. No fading.

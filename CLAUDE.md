@@ -34,7 +34,8 @@ Tests: Vitest 5 + React Testing Library + jest-dom (jsdom; setup in `src/test/se
 - `src/styles/tokens.css` is the **only** place for colours, fonts, the type scale and the
   space scale (`--space-*`, `--text-*`, `--color-*`). Light only (no dark mode, Nika's call 2026-11-13).
 - Warm classic palette (Nika's call 2026-11-13, "cozy but classic"): linen page `#efe6d8`, espresso text
-  and header/footer `#2b211c`. Space Grotesk (display) + Archivo (body) + Bodoni Moda (About name, logo MG) + Cormorant Garamond italic (album card text, Nika's call 2026-11-15),
+  and header/footer `#2b211c`. Space Grotesk (display) + Archivo (body) + Bodoni Moda (About name, logo MG),
+  album card text = the About body font (Nika's call 2026-11-15; no photo count on cards),
   loaded in `index.html`.
 - Shared helpers in `global.css`: `.container` (page width + gutter), `.visually-hidden`.
 - Tap targets use `--tap-target` (44px). The first `EAGER_PHOTOS` photos (`albums.ts`) load eagerly.

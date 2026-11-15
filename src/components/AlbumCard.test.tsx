@@ -12,9 +12,9 @@ const album = {
 }
 
 describe('AlbumCard (Nika)', () => {
-  it('is ONE link to the album, named by its title and count only', () => {
+  it('is ONE link to the album, named by its title only', () => {
     render(<AlbumCard album={album} />)
-    const link = screen.getByRole('link', { name: 'Summer trip 2 photos' })
+    const link = screen.getByRole('link', { name: 'Summer trip' })
     expect(link).toHaveAttribute('href', '#album/trip')
   })
 
@@ -29,20 +29,15 @@ describe('AlbumCard (Nika)', () => {
     expect(img).toHaveAttribute('height', '1000')
   })
 
-  it('shows the title as a heading and the photo count', () => {
+  it('shows the title as a heading and no photo count', () => {
     render(<AlbumCard album={album} />)
     expect(screen.getByRole('heading', { level: 3, name: 'Summer trip' })).toBeInTheDocument()
-    expect(screen.getByText('2 photos')).toBeInTheDocument()
-  })
-
-  it('says "1 photo" for an album with one photo', () => {
-    render(<AlbumCard album={{ ...album, photos: [cover] }} />)
-    expect(screen.getByText('1 photo')).toBeInTheDocument()
+    expect(screen.queryByText(/photos?$/)).not.toBeInTheDocument()
   })
 
   it('shows the short text under the card, as the link description (not its name)', () => {
     render(<AlbumCard album={{ ...album, description: 'Sunrise on the water.' }} />)
-    const link = screen.getByRole('link', { name: 'Summer trip 2 photos' })
+    const link = screen.getByRole('link', { name: 'Summer trip' })
     expect(link).toHaveAccessibleDescription('Sunrise on the water.')
     expect(screen.getByText('Sunrise on the water.')).toBeInTheDocument()
   })
