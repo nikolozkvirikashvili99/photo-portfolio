@@ -49,7 +49,6 @@ export const site: Site = {
     heading: 'About me',
     paragraphs: [
       'Hi, I’m Maia, a photographer based in Tbilisi working across fashion and weddings. I photograph backstage at fashion shows, bridal moments and personal portraits. My style is quiet and cinematic: natural light, real emotion, nothing over-posed.',
-      'For brands and fashion events, I provide discreet backstage coverage that shows both the collection and the people behind it. For couples, I photograph the wedding day the way it actually feels, so you can live it again years later.',
     ],
     workHeading: 'Selected Work',
     work: [

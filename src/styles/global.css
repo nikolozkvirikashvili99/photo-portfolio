@@ -518,6 +518,15 @@ a {
   font-size: var(--text-sm);
 }
 
+.album-card__description {
+  margin-block-start: var(--space-1);
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--text-caption);
+  line-height: 1.35;
+}
+
 /* Lift: the card rises with a soft shadow, like a print being picked up. No fading.
    Mouse hover only on devices that really hover (a tap on a phone would leave it stuck up);
    keyboard focus lifts it everywhere, next to the focus outline. */

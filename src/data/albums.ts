@@ -16,6 +16,8 @@ type PhotoEntry = [file: string, alt: string, width?: number, height?: number]
 interface AlbumEntry {
   slug: string
   title: string
+  /** The short text under the album's card in the gallery. Leave it out for no text. */
+  description?: string
   photos: PhotoEntry[]
 }
 
@@ -30,6 +32,7 @@ export interface Photo {
 export interface Album {
   slug: string
   title: string
+  description?: string
   photos: Photo[]
   cover: Photo
 }
@@ -38,6 +41,7 @@ const data: AlbumEntry[] = [
   {
     slug: 'fashion',
     title: 'Fashion',
+    description: 'For fashion events, I provide discreet backstage coverage that captures the energy of the show and the people behind it.',
     photos: [
       ['01.jpg', 'Model backstage in a black lace jumpsuit and laced leather corset, arms raised as dark fabric swirls around her', 1333, 2000],
     ],
@@ -45,6 +49,7 @@ const data: AlbumEntry[] = [
   {
     slug: 'brands',
     title: 'Brands',
+    description: 'For brands, I create campaign, commercial and editorial imagery that presents every piece in its full beauty and character.',
     photos: [
       ['01.jpg', 'Model seen from behind in a white sequined open-back dress with a chain of crystal flowers down the spine', 1333, 2000],
     ],
@@ -52,6 +57,7 @@ const data: AlbumEntry[] = [
   {
     slug: 'weddings',
     title: 'Weddings',
+    description: 'For couples, I photograph the wedding day the way it actually feels, so you can live it again years later.',
     photos: [
       ['01.jpg', 'Bride in a satin gown with a long train smiling up at the camera as the groom holds her hand, seen from above', 1500, 2000],
     ],
@@ -59,6 +65,7 @@ const data: AlbumEntry[] = [
   {
     slug: 'portraits',
     title: 'Portraits',
+    description: 'For portraits, I create a calm, unhurried space where you can simply be yourself, and the camera finds the rest.',
     photos: [
       ['01.jpg', 'Black-and-white portrait of a woman leaning against a wall by a window', 1333, 2000],
     ],
@@ -68,7 +75,7 @@ const data: AlbumEntry[] = [
 // An album with no photos has no cover, so it's left out until you add some.
 export const albums: Album[] = data
   .filter((album) => album.photos.length > 0)
-  .map(({ slug, title, photos }) => {
+  .map(({ slug, title, description, photos }) => {
     const list = photos.map(([file, alt, width = 800, height = 1000]) => ({
       id: `${slug}/${file}`,
       src: `/albums/${slug}/${file}`,
@@ -76,7 +83,7 @@ export const albums: Album[] = data
       width,
       height,
     }))
-    return { slug, title, photos: list, cover: list[0] }
+    return { slug, title, description, photos: list, cover: list[0] }
   })
 
 /** Photos in the first row (4 across on desktop) load right away; the rest lazily. */

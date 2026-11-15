@@ -35,7 +35,9 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
   --font-serif: "Bodoni Moda", Didot, Georgia, serif; /* the logo's MG and the About name + line */
+  --font-caption: "Cormorant Garamond", Garamond, Georgia, serif; /* italic: the text under album cards */
   --text-sm: 0.875rem;
+  --text-caption: 1.125rem; /* Cormorant runs small, so it needs a bit more size than the body text */
   --text-base: 1rem;
   --text-lg: 1.25rem;
   --text-xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);

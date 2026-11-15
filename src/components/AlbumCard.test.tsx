@@ -40,6 +40,18 @@ describe('AlbumCard (Nika)', () => {
     expect(screen.getByText('1 photo')).toBeInTheDocument()
   })
 
+  it('shows the short text under the card, as the link description (not its name)', () => {
+    render(<AlbumCard album={{ ...album, description: 'Sunrise on the water.' }} />)
+    const link = screen.getByRole('link', { name: 'Summer trip 2 photos' })
+    expect(link).toHaveAccessibleDescription('Sunrise on the water.')
+    expect(screen.getByText('Sunrise on the water.')).toBeInTheDocument()
+  })
+
+  it('shows no text when the album has none', () => {
+    render(<AlbumCard album={album} />)
+    expect(screen.getByRole('link')).not.toHaveAttribute('aria-describedby')
+  })
+
   it('loads eagerly only when told to', () => {
     const { container, rerender } = render(<AlbumCard album={album} eager />)
     expect(container.querySelector('img')).toHaveAttribute('loading', 'eager')
