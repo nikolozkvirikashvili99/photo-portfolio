@@ -2,7 +2,9 @@
 
 ## What this is
 A photographer's portfolio site: one page (header, intro, album covers, footer).
-Each album opens as its own view at `#album/<slug>` (hash routing via `src/hooks/useHash.ts`, no router).
+Each album opens as its own view at `/album/<slug>` (clean URLs, no `#`: history API via `src/hooks/usePath.ts`, no router;
+`vercel.json` sends every path that isn't a real file to `index.html`). Section links are `/work`, `/about`, `/contact`:
+they scroll to that home-page section and the address bar stays `/`. Nika's rule: never a `#` anywhere in a URL.
 Nika's **own** project and a learning project: parts marked `TODO(Nika)` are Nika's to write (`/tutor`).
 
 ## Commands (run from the repo root; Windows-safe)

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { albums, albumFromHash, albumHref, photoCountLabel } from './albums.ts'
+import { albums, albumFromPath, albumHref, photoCountLabel } from './albums.ts'
 
 describe('albums data', () => {
   it('has unique, URL-safe slugs', () => {
@@ -28,21 +28,23 @@ describe('albums data', () => {
   })
 })
 
-describe('albumFromHash', () => {
-  it('finds the album for #album/<slug>', () => {
+describe('albumFromPath', () => {
+  it('finds the album for /album/<slug>, with or without a trailing slash', () => {
     const first = albums[0]
-    expect(albumFromHash(albumHref(first.slug))).toBe(first)
+    expect(albumHref(first.slug)).toBe(`/album/${first.slug}`)
+    expect(albumFromPath(albumHref(first.slug))).toBe(first)
+    expect(albumFromPath(`${albumHref(first.slug)}/`)).toBe(first)
   })
 
-  it('returns null for section links, unknown albums and no hash', () => {
-    expect(albumFromHash('#work')).toBeNull()
-    expect(albumFromHash('#album/does-not-exist')).toBeNull()
-    expect(albumFromHash('')).toBeNull()
+  it('returns null for the home page and unknown albums', () => {
+    expect(albumFromPath('/')).toBeNull()
+    expect(albumFromPath('/album/does-not-exist')).toBeNull()
+    expect(albumFromPath('')).toBeNull()
   })
 
-  it('returns null (no crash) for a broken link like #album/%', () => {
-    expect(albumFromHash('#album/%')).toBeNull()
-    expect(albumFromHash('#album/%E0%A4%A')).toBeNull()
+  it('returns null (no crash) for a broken link like /album/%', () => {
+    expect(albumFromPath('/album/%')).toBeNull()
+    expect(albumFromPath('/album/%E0%A4%A')).toBeNull()
   })
 })
 

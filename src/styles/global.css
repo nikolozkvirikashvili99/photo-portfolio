@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Jumps to #work / #about / #contact stop below the frozen header, not under it. */
+/* Jumps to the work / about / contact sections stop below the frozen header, not under it. */
 html {
   scroll-padding-top: var(--header-height);
 }

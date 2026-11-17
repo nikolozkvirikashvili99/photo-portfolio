@@ -44,7 +44,7 @@ describe('Header', () => {
     expect(menuButton()).toHaveAttribute('aria-expanded', 'true')
     const nav = screen.getByRole('navigation')
     const links = within(nav).getAllByRole('link')
-    expect(links.map((a) => a.getAttribute('href'))).toEqual(['#work', '#about', '#contact'])
+    expect(links.map((a) => a.getAttribute('href'))).toEqual(['/work', '/about', '/contact'])
     for (const link of links) expect(link.textContent?.trim()).not.toBe('') // every link has visible text
   })
 

@@ -24,7 +24,7 @@ export default function Album({ album }: AlbumProps) {
     <section className="album container" aria-labelledby="album-title">
       {/* React 19 moves this into <head>; the tab shows the album name. */}
       <title>{`${album.title} · ${site.name}`}</title>
-      <a className="album__back" href="#work">
+      <a className="album__back" href="/work">
         <span aria-hidden="true">←</span> All albums
       </a>
       <header className="album__header">

@@ -3,11 +3,12 @@ import { site } from "../data/site.ts";
 import SocialIcon from "./SocialIcon.tsx";
 import Logo from "./Logo.tsx";
 
-// Each href matches a section id on the page: #work (Gallery), #about (Intro), #contact (Footer).
+// Each href names a section id on the home page: work (Gallery), about (Intro), contact (Footer).
+// usePath scrolls there (from any page); the address bar stays '/'.
 const links = [
-  { label: "Selected Work", href: "#work" },
-  { label: "The Photographer", href: "#about" },
-  { label: "Inquiries", href: "#contact" },
+  { label: "Selected Work", href: "/work" },
+  { label: "The Photographer", href: "/about" },
+  { label: "Inquiries", href: "/contact" },
 ];
 
 // The one social profile shown in the header (all of them are in the footer).

@@ -62,7 +62,7 @@ describe('Album', () => {
 
   it('links back to all albums', () => {
     render(<Album album={album} />)
-    expect(screen.getByRole('link', { name: /all albums/i })).toHaveAttribute('href', '#work')
+    expect(screen.getByRole('link', { name: /all albums/i })).toHaveAttribute('href', '/work')
   })
 
   it('sets the browser tab title', () => {

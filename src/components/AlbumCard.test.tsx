@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+﻿import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import AlbumCard from './AlbumCard.tsx'
 
@@ -15,7 +15,7 @@ describe('AlbumCard (Nika)', () => {
   it('is ONE link to the album, named by its title only', () => {
     render(<AlbumCard album={album} />)
     const link = screen.getByRole('link', { name: 'Summer trip' })
-    expect(link).toHaveAttribute('href', '#album/trip')
+    expect(link).toHaveAttribute('href', '/album/trip')
   })
 
   // Inside the link the title already says where it goes, so the cover is decorative (alt="").

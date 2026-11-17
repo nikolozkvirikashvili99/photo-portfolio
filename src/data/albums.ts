@@ -7,7 +7,7 @@
 //   2. Add a line under that album's photos: ['02.jpg', 'what the photo shows', width, height].
 //      The alt text is what someone who can't see the photo should know.
 //   3. New album? Add a folder + a block below. `slug` is the folder name and the link
-//      (#album/weddings): lowercase, no spaces.
+//      (/album/weddings): lowercase, no spaces.
 //   width/height are the file's pixel size (they stop the page jumping while photos load);
 //   left out, 800×1000 (portrait) is assumed.
 /** [file, alt, width?, height?]: one line per photo in the list below. */
@@ -89,21 +89,21 @@ export const albums: Album[] = data
 /** Photos in the first row (4 across on desktop) load right away; the rest lazily. */
 export const EAGER_PHOTOS = 4
 
-const ALBUM_HASH = '#album/'
+const ALBUM_PATH = '/album/'
 
-/** The link to an album: '#album/weddings'. */
+/** The link to an album: '/album/weddings'. */
 export function albumHref(slug: string): string {
-  return `${ALBUM_HASH}${slug}`
+  return `${ALBUM_PATH}${slug}`
 }
 
-/** '#album/weddings' → the weddings album. Anything else → null (show the gallery). */
-export function albumFromHash(hash: string): Album | null {
-  if (!hash.startsWith(ALBUM_HASH)) return null
+/** '/album/weddings' (or '/album/weddings/') → the weddings album. Anything else → null (show the home page). */
+export function albumFromPath(path: string): Album | null {
+  if (!path.startsWith(ALBUM_PATH)) return null
   let slug
   try {
-    slug = decodeURIComponent(hash.slice(ALBUM_HASH.length))
+    slug = decodeURIComponent(path.slice(ALBUM_PATH.length).replace(/\/$/, ''))
   } catch {
-    return null // a broken link like '#album/%': show the gallery instead of crashing
+    return null // a broken link like '/album/%': show the home page instead of crashing
   }
   return albums.find((album) => album.slug === slug) ?? null
 }

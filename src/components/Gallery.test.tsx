@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+﻿import { describe, it, expect } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
 import Gallery from './Gallery.tsx'
 import { albums, EAGER_PHOTOS } from '../data/albums.ts'
@@ -21,7 +21,7 @@ describe('Gallery', () => {
     const links = screen.getAllByRole('link')
     expect(links).toHaveLength(albums.length)
     albums.forEach((album, i) => {
-      expect(links[i]).toHaveAttribute('href', `#album/${album.slug}`)
+      expect(links[i]).toHaveAttribute('href', `/album/${album.slug}`)
       expect(links[i].querySelector('img')).toHaveAttribute('loading', i < EAGER_PHOTOS ? 'eager' : 'lazy')
     })
   })
